@@ -8,8 +8,11 @@ You are given a string stored in variable `problem`. Write code so that you prin
 
 ```swift
 var problem = "split this string into words and print them on separate lines"
+let seperatedProblem = problem.split(separator: " ")
 
-// Your code
+for word in seperatedProblem {
+    print(word)
+}
 ```
 
 Example
@@ -42,6 +45,12 @@ let testString = "  How   about      thesespaces  ?  "
 //condensedString = " How about thesespaces ? "
 ```
 
+```swift
+let testString = "  How   about      thesespaces  ?  "
+let condensedString = testString.split(separator: " ").joined(separator: " ")
+print(condensedString)
+```
+
 
 ## Question 3
 
@@ -53,6 +62,17 @@ Sample Input: `"Swift is the best language"`
 
 Sample Output: `"language best the is Swift"`
 
+```Swift
+let input = "Swift is the best language"
+var reverseWordByWord = ""
+let seperatedInput = input.split(separator: " ")
+
+for words in seperatedInput {
+    reverseWordByWord = "\(words) " + reverseWordByWord
+}
+print(reverseWordByWord)
+```
+
 
 ## Question 4
 
@@ -63,6 +83,15 @@ Example:
 Sample Input: `"danaerys dad cat civic bottle"`
 
 Sample Output: `2`
+
+```swift
+let input = "danaerys dad cat civic bottle"
+var palindromeCount = 0
+for word in input.split(separator: " ") where word == String(word.reversed()) {
+    palindromeCount += 1
+}
+print("There were \(palindromeCount) palindromes in the string \"\(input).\"")
+```
 
 
 ## Question 5
@@ -83,6 +112,21 @@ Sample Input: `"PPALLP"`
 
 Sample Output: `true`
 
+```swift
+let input = "PPALLP"
+let getReward: Bool
+
+if String(input.sorted()).contains("AA") {
+    getReward = false
+} else if input.contains("LLL") {
+    getReward = false
+} else {
+    getReward = true
+}
+
+print(getReward)
+```
+
 
 ## Question 6
 
@@ -99,3 +143,10 @@ Sample Output1: `False`
 Sample Input2: `("aa", "aab")`
 
 Sample Output2: `True`
+
+```swift
+let input = ("aa", "aab")
+
+let makeRansome = String(input.1.sorted()).contains(String(input.0.sorted()))
+print(makeRansome)
+```
