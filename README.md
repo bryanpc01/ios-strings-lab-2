@@ -145,8 +145,11 @@ Sample Input2: `("aa", "aab")`
 Sample Output2: `True`
 
 ```swift
-let input = ("aa", "aab")
+let input = ("a a", "aab")
 
-let makeRansome = String(input.1.sorted()).contains(String(input.0.sorted()))
+let potentialSentence = String(input.0.replacingOccurrences(of: " ", with: "").sorted())
+let wordBank = String(input.1.sorted())
+
+let makeRansome = wordBank.contains(potentialSentence)
 print(makeRansome)
 ```
